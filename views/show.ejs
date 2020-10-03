@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>CRUD (mongo) - show page</title>
+    </head>
+
+    <body>
+        <center>
+            <h1 style='color:blue'>--* SHOW  PAGE *--</h1>
+            <hr>
+            <a href='/'><span style='color:chocolate'>Home</span></a> &nbsp; &nbsp;
+            <a href='/shop/entry'><span style='color:chocolate'>Entry</span></a> &nbsp; &nbsp;
+            <a href='/shop/show'><span style='color:chocolate'>Show</span></a>
+            <hr>
+
+            <h2>Salesman Tables</h2>
+
+            <table border='3px' cellpadding='6px' cellspacing=3px>
+                <tr>
+                    <td><b>S Id</b></td>
+                    <td><b>Name</b></td>
+                    <td><b>Department</b></td>
+                    <td><b>Salary</b></td>
+                    <td colspan='2'><b><center>Action</center></b></td>
+                </tr>
+
+                <% salesz.forEach((rec)=>
+                {
+                    %>
+                <tr>
+                    <td><%= rec._id %></td>
+                    <td><%= rec.sname %></td>
+                    <td><%= rec.dept %></td>
+                    <td><%= rec.salary %></td>
+                    <td>
+                        <a href="/shop/delete?_id=<%= rec._id %>">Delete</a>
+                    </td>
+                    <td>
+                        <a href="/shop/update_req?_id=<%= rec._id%>&sname=<%= rec.sname%>&dept=<%= rec.dept%>&salary=<%= rec.salary%>">Update</a>
+                    </td>
+                </tr>
+                <% }) %>
+
+            </table>
+        </center>
+    </body>
+</html>
